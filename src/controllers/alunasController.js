@@ -42,4 +42,31 @@ exports.getSP = (req, res) => {
   res.status(200). send(nomePaulistas);
 }
 
+exports.getIdade = (req, res) => {
+  const id = req.params.id;   //dá acesso ao número que eu passo na rota, que vai ser equivalente ao id
+  const aluna = alunas.find(aluna => aluna.id == id)
+  const alunaDataNasc = aluna.dateOfBirth
+  const splitData = alunaDataNasc.split("/")
+  const  diaDeNasc = splitData[0]
+  const  mesDeNasc =splitData[1]
+  const anoDeNasc = splitData[2]
+  
+  const idadeAluna = calcularIdade(anoDeNasc, mesDeNasc, diaDeNasc)
+    res.status(200). send({idadeAluna}); //não estava acessando como string, por isso tive que colocar entre {}
+  }
+  
 
+
+function calcularIdade(anoDeNasc, mesDeNasc, diaDeNasc) {
+    const now = new Date()
+    const anoAtual = now.getFullYear()
+    const mesAtual = now.getMonth() + 1
+    const hoje = now.getDate()
+  
+    let idade = anoAtual - anoDeNasc
+  
+    if (mesAtual < mesDeNasc || (mesAtual == mesDeNasc && hoje < diaDeNasc)) {
+      idade -= 1
+    }
+    return idade
+  }
