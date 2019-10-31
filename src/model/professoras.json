@@ -3,7 +3,7 @@
     "id": 1,
     "nome": "natalya",
     "especialidade": "Java",
-    "signo": "leão", 
+    "signo": "leão",
     "cpf": 90808908098
   },
   {
@@ -26,5 +26,12 @@
     "especialidade": "c#",
     "signo": "capricornio",
     "cpf": 90808908098
+  },
+  {
+    "id": 5,
+    "nome": "Juliana",
+    "especialidade": "Java",
+    "signo": "cancer",
+    "cpf": 11111111111
   }
 ]

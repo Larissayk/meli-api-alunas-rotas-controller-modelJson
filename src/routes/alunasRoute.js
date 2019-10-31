@@ -8,4 +8,7 @@ router.get('/:id', controller.getById)
 router.get('/:id/books', controller.getBooks)
 router.get('/:id/getIdade', controller.getIdade)
 
+router.post('/', controller.post)
+router.post('/:id/books', controller.postBooks)
+
 module.exports = router
